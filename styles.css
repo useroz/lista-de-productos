@@ -101,30 +101,43 @@ body {
 .control-buttons button:hover {
   background-color: #45a049;
 }
-/* Media Queries */
+/* Diseño general para pantallas pequeñas (móviles) */
 @media (max-width: 768px) {
   .main-container {
-    flex-direction: column; /* Apila las columnas verticalmente */
+    flex-direction: column; /* Cambia de columnas a filas */
     align-items: center;
+    gap: 20px;
   }
 
   .product-column {
-    width: 100%; /* Columna ocupa todo el ancho */
+    width: 90%; /* Ajusta las columnas para ocupar todo el ancho */
   }
 
   .shopping-list-container {
-    width: 90%; /* Ajusta a un tamaño más pequeño */
+    top: 0; /* Corrige la posición relativa */
+    width: 90%; /* Haz que ocupe la mayor parte de la pantalla */
+    margin-top: 20px; /* Añade un margen superior */
   }
-}
 
-@media (max-width: 480px) {
   .product-item img {
-    width: 80px; /* Imágenes más pequeñas en pantallas pequeñas */
+    width: 80px; /* Reduce el tamaño de las imágenes */
     height: 80px;
   }
 
   .control-buttons button {
-    padding: 8px 16px; /* Botones más compactos */
-    font-size: 14px;
+    padding: 8px 15px; /* Ajusta el tamaño de los botones */
+    font-size: 14px; /* Reduce el texto de los botones */
+  }
+
+  h1, h2 {
+    font-size: 20px; /* Ajusta los tamaños de los encabezados */
+  }
+
+  #shoppingList {
+    font-size: 14px; /* Ajusta el tamaño del texto de la tabla */
+  }
+
+  .total-container {
+    font-size: 16px; /* Ajusta el tamaño del total */
   }
 }
