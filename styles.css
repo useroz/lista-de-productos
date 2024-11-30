@@ -1,0 +1,103 @@
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 40px;                            
+}
+
+
+.product-column {
+  width: 35%;                          
+}
+
+
+.product-item {
+  text-align: center;
+  border: 1.5px solid #a54141;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  transition: transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0px;                   
+}
+
+
+.product-item:hover {
+  transform: scale(1.05);
+}
+
+
+.product-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+
+.product-column {
+  margin-right: 10px;                  
+}
+
+
+.product-column .product-item {
+  margin-bottom: 10px;                
+  }
+
+
+.shopping-list-container {
+  position: relative;
+  top: -1000px; 
+  margin: 0 auto;
+  width: 20%; 
+  text-align: center;
+  background-color: rgb(243, 243, 243);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 50px; 
+}
+
+
+#shoppingList {
+  width: 100%;
+  margin: 10px 0;
+  border-collapse: collapse;
+}
+
+#shoppingList th, #shoppingList td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.total-container {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.control-buttons {
+  margin-top: 20px;
+}
+
+.control-buttons button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #7ecf81;
+  color: white;
+  cursor: pointer;
+}
+
+.control-buttons button:hover {
+  background-color: #45a049;
+}

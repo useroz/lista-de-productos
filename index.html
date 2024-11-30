@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Compras</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <center><h1>Lista de productos disponibles</h1></center>
+  <center><h2>Lista de Compras</h2></center>
+  
+  <div class="main-container">
+    <!-- Columna izquierda -->
+    <div class="product-column left-column">
+      <div class="product-item" onclick="addProduct('manzana roja', 10)">
+        <img src="image/manzana_roja.jpg" alt="manzana roja">
+        <p>manzana roja</p>
+      </div>
+      <div class="product-item" onclick="addProduct('sandia', 15)">
+        <img src="image/sandia.webp" alt="sandia">
+        <p>sandia</p>
+      </div>
+      <div class="product-item" onclick="addProduct('Lechuga', 5)">
+        <img src="image/lechuga.webp" alt="Lechuga">
+        <p>Lechuga</p>
+      </div>
+      <div class="product-item" onclick="addProduct('Plátano', 8)">
+        <img src="image/platano.jpg" alt="Plátano">
+        <p>Plátano</p>
+      </div>
+      <div class="product-item" onclick="addProduct('Tomate', 12)">
+        <img src="image/tomate.avif" alt="Tomate">
+        <p>Tomate</p>
+      </div>
+    </div>
+  
+    <!-- Columna derecha -->
+    <div class="product-column right-column">
+      <div class="product-item" onclick="addProduct('Zanahoria', 6)">
+        <img src="image/zanahoria.jpg" alt="Zanahoria">
+        <p>Zanahoria</p>
+      </div>
+      <div class="product-item" onclick="addProduct('Pera', 7)">
+        <img src="image/pera.jpg" alt="Pera">
+        <p>Pera</p>
+      </div>
+      <div class="product-item" onclick="addProduct('Uva', 20)">
+        <img src="image/uva.png" alt="Uva">
+        <p>Uva</p>
+      </div>
+      <div class="product-item" onclick="addProduct('Mango', 18)">
+        <img src="image/mango.jpg" alt="Mango">
+        <p>Mango</p>
+      </div>
+      <div class="product-item" onclick="addProduct('Naranja', 9)">
+        <img src="image/Naranja.webp" alt="Naranja">
+        <p>Naranja</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="shopping-list-container">
+    <center><table id="shoppingList">
+      <thead>
+        <tr>
+          <th>Descripción</th>
+          <th>Cantidad</th>
+          <th>Precio</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div class="total-container">
+      <p>Total a pagar: <span id="totalAmount">0.00</span></p>
+    </div>
+
+    <div class="control-buttons">
+      <button onclick="resetList()">Nuevo</button>
+      <button onclick="pay()">Pagar</button>
+    </div>
+
+    <!-- Barra de progreso para simular el pago -->
+    <div id="progressWrapper" class="progress-wrapper">
+      <div id="progressBar" class="progress-bar"></div>
+      <span id="progressText"></span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker
+          .register("/service-worker.js")
+          .then(reg => console.log("Service Worker registrado:", reg))
+          .catch(err => console.log("Error al registrar el Service Worker:", err));
+      });
+    }
+  </script>
+</body>
+</html>
