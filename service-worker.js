@@ -34,7 +34,11 @@ self.addEventListener("activate", event => {
 self.addEventListener("fetch", event => {
   event.respondWith(
     caches.match(event.request).then(response => {
-      return response || fetch(event.request);
+      // Si el recurso está en caché, devolverlo; de lo contrario, intentar obtenerlo de la red.
+      return response || fetch(event.request).catch(() => {
+        // Si no hay conexión y el recurso no está en el caché, devolver nada.
+        return new Response("", { status: 404, statusText: "Not Found" });
+      });
     })
   );
 });
