@@ -6,7 +6,14 @@ const urlsToCache = [
   "/script.js",
   "/manifest.json",
   "/image/lechuga.webp",
-  
+  "/image/mango.jpg",
+  "/image/manzana_roja.jpg",
+  "/image/narajan.webp",
+  "/image/pera.jpg",
+  "/image/platana.jpg",
+  "/image/sandia.webp",
+  "/image/tomate.avif",
+  "/image/uva.png",
 ];
 
 self.addEventListener("install", event => {
