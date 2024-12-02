@@ -1,45 +1,54 @@
-const CACHE_NAME = 'compras-cache-v1';
-const ASSETS_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/styles.css',
-  '/script.js',
-  '/icons/icon-192x192.png',
-  '/icons/icon-512x512.png'
+const CACHE_NAME = "v1_cache_lista_compras";
+const urlsToCache = [
+  "/",
+  "/index.html",
+  "/styles.css",
+  "/script.js",
+  "/manifest.json",
+  "/image/manzana_roja.jpg",
+  "/image/sandia.webp",
+  "/image/lechuga.webp",
+  "/image/platano.jpg",
+  "/image/tomate.avif",
+  "/image/zanahoria.jpg",
+  "/image/pera.jpg",
+  "/image/uva.png",
+  "/image/mango.jpg",
+  "/image/Naranja.webp",
+  "/icons/icon-192x192.png",
+  "/icons/icon-512x512.png"
 ];
 
-// Instalar y almacenar en caché los recursos
-self.addEventListener('install', (event) => {
+self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      console.log('Archivos en caché correctamente');
-      return cache.addAll(ASSETS_TO_CACHE);
-    })
+    caches.open(CACHE_NAME)
+      .then((cache) => cache.addAll(urlsToCache))
+      .then(() => self.skipWaiting())
   );
 });
 
-// Interceptar solicitudes y responder con caché o red
-self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
-    })
-  );
-});
-
-// Limpiar cachés antiguas
-self.addEventListener('activate', (event) => {
-  const allowedCaches = [CACHE_NAME];
+self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (!allowedCaches.includes(cacheName)) {
-            console.log(`Eliminando caché antigua: ${cacheName}`);
-            return caches.delete(cacheName);
+    caches.keys().then((cacheNames) =>
+      Promise.all(
+        cacheNames.map((cache) => {
+          if (cache !== CACHE_NAME) {
+            return caches.delete(cache);
           }
         })
-      );
+      )
+    ).then(() => self.clients.claim())
+  );
+});
+
+self.addEventListener("fetch", (event) => {
+  event.respondWith(
+    caches.match(event.request).then((response) => {
+      return response || fetch(event.request).catch(() => {
+        if (event.request.mode === "navigate") {
+          return caches.match("/offline.html");
+        }
+      });
     })
   );
 });
