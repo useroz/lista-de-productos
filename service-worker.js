@@ -4,7 +4,7 @@ const resourcesToCache = [
   '/index.html',
   '/styles.css',
   '/script.js',
-  '/image/mango.jpg / sandia.webp',   
+  '/image/mango.jpg',   
   
   // Añade todas las imágenes
 ];
