@@ -6,6 +6,7 @@ const urlsToCache = [
   "/script.js",
   "/manifest.json",
   "/image/lechuga.webp",
+  "/image/mango.jpg",
  
 ];
 
