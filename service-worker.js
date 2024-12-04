@@ -21,10 +21,13 @@ const resourcesToCache = [
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(resourcesToCache);
+      return cache.addAll(resourcesToCache).catch((error) => {
+        console.error('Error al añadir recursos al caché:', error);
+      });
     })
   );
 });
+
 
 
 
