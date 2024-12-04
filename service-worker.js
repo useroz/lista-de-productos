@@ -4,12 +4,7 @@ const resourcesToCache = [
   '/index.html',
   '/styles.css',
   '/script.js',
-  '/images/manzana-roja.png',
-  '/images/zanahoria.png',
-  '/images/zanahoria.png',
-  '/images/zanahoria.png',
-  '/images/zanahoria.png',
-  '/images/zanahoria.png',
+  
    // Añade todas las imágenes
 ];
 
