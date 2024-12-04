@@ -11,6 +11,9 @@ const urlsToCache = [
   "/image/Naranja.webp",
   "/image/pera.jpg",
   "/image/platano.jpg",
+  "/image/sandia.webp",
+  "/image/tomate.avif",
+
 
   
  
