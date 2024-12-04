@@ -9,6 +9,7 @@ const urlsToCache = [
   "/image/mango.jpg",
   "/image/manzana_roja.jpg",
   "/image/Naranja.webp",
+  "/image/pera.jpg",
   
  
 ];
