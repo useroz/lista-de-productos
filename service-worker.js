@@ -7,6 +7,7 @@ const urlsToCache = [
   "/manifest.json",
   "/image/lechuga.webp",
   "/image/mango.jpg",
+  "/image/manzana_roja.jpg",
  
 ];
 
