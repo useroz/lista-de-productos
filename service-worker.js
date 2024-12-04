@@ -4,17 +4,8 @@ const resourcesToCache = [
   '/index.html',
   '/styles.css',
   '/script.js',
-  '/image/lechuga.webp',
-  '/image/mango.jpg',   
-  '/image/manzana-roja.png',
-  '/image/naranja.webp', 
-  '/image/pera.jpg',
-  '/image/platano.jpg',
-  '/image/sandia.jpg',
-  '/image/tomate.avif',
-   '/image/uva.jpg',
-   '/image/zanahoria.jpg',
- 
+  '/image/mango.jpg / sandia.webp',   
+  
   // Añade todas las imágenes
 ];
 
