@@ -8,6 +8,8 @@ const urlsToCache = [
   "/image/lechuga.webp",
   "/image/mango.jpg",
   "/image/manzana_roja.jpg",
+  "/image/naranja.webp",
+  "/image/pera.jpg",
  
 ];
 
