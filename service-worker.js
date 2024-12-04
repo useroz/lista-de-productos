@@ -4,8 +4,18 @@ const resourcesToCache = [
   '/index.html',
   '/styles.css',
   '/script.js',
-  
-   // Añade todas las imágenes
+  '/images/lechuga.webp',
+  '/images/mango.jpg',   
+  '/images/manzana-roja.png',
+  '/images/naranja.webp', 
+  '/image/pera.jpg',
+  '/images/platano.jpg',
+  '/images/sandia.jpg',
+  '/images/tomate.avif',
+   '/images/uva.jpg',
+   '/images/zanahoria.jpg',
+ 
+  // Añade todas las imágenes
 ];
 
 self.addEventListener('install', (event) => {
@@ -15,6 +25,7 @@ self.addEventListener('install', (event) => {
     })
   );
 });
+
 
 
 self.addEventListener("activate", event => {
