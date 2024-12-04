@@ -1,21 +1,26 @@
-const CACHE_NAME = "v1_cache_lista_compras";
-const urlsToCache = [
-  "/",
-  "/index.html",
-  "/styles.css",
-  "/script.js",
-  "/manifest.json",
-  "/image/lechuga.webp",
- 
+const CACHE_NAME = 'v1';
+const resourcesToCache = [
+  '/',
+  '/index.html',
+  '/styles.css',
+  '/script.js',
+  '/images/manzana-roja.png',
+  '/images/zanahoria.png',
+  '/images/zanahoria.png',
+  '/images/zanahoria.png',
+  '/images/zanahoria.png',
+  '/images/zanahoria.png',
+   // Añade todas las imágenes
 ];
 
-self.addEventListener("install", event => {
+self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(urlsToCache))
-      .then(() => self.skipWaiting())
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(resourcesToCache);
+    })
   );
 });
+
 
 self.addEventListener("activate", event => {
   event.waitUntil(
