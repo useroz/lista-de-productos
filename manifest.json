@@ -6,7 +6,7 @@
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#4CAF50",
-  "icons": [
+  "iconos": [
     {
       "src": "/iconos/icono.jpg",
       "sizes": "192x192",
