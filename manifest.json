@@ -6,16 +6,16 @@
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#4CAF50",
-  "iconos": [
+  "icons": [
     {
-      "src": "/iconos/icono.jpg",
+      "src": "/icons/icon-192x192.png",
       "sizes": "192x192",
-      "type": "image/jpg"
+      "type": "image/png"
     },
     {
-      "src": "/iconos/icono.jpg",
+      "src": "/icons/icon-512x512.png",
       "sizes": "512x512",
-      "type": "image/jpg"
+      "type": "image/png"
     }
   ]
 }
