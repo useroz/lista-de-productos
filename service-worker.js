@@ -20,43 +20,37 @@ const urlsToCache = [
   
  
 ];
-// Instala el Service Worker y almacena los recursos en caché
+
 self.addEventListener("install", event => {
   event.waitUntil(
-      caches.open(CACHE_NAME)
-      .then(cache => {
-          console.log("Cachando recursos...", urlsToCache); // Agrega un log aquí
-          return cache.addAll(urlsToCache);
-      })
+    caches.open(CACHE_NAME)
+      .then(cache => cache.addAll(urlsToCache))
+      .then(() => self.skipWaiting())
   );
 });
 
+self.addEventListener("activate", event => {
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cache => {
+          if (cache !== CACHE_NAME) {
+            return caches.delete(cache);
+          }
+        })
+      );
+    }).then(() => self.clients.claim())
+  );
+});
 
-// Intercepta las solicitudes de red y sirve desde el caché si está disponible
 self.addEventListener("fetch", event => {
   event.respondWith(
-      caches.match(event.request)
-      .then(response => {
-          if (response) {
-              return response; // Si está en caché, devuelve el recurso
-          }
-
-          if (!navigator.onLine) {
-              // Si está offline, devuelve un mensaje JSON o de texto
-              return new Response(
-                  "Estás offline. Algunas funcionalidades podrían no estar disponibles.", {
-                      status: 503,
-                      statusText: "Servicio no disponible",
-                      headers: { "Content-Type": "text/plain" }
-                  }
-              );
-          }
-
-          return fetch(event.request);
-      })
-      .catch(error => {
-          console.log("Error al intentar obtener el recurso:", error);
-          return new Response("Error al cargar el recurso.", { status: 500 });
-      })
+    caches.match(event.request).then(response => {
+      // Si el recurso está en caché, devolverlo; de lo contrario, intentar obtenerlo de la red.
+      return response || fetch(event.request).catch(() => {
+        // Si no hay conexión y el recurso no está en el caché, devolver nada.
+        return new Response("", { status: 404, statusText: "Not Found" });
+      });
+    })
   );
 });
