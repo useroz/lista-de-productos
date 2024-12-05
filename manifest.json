@@ -1,11 +1,13 @@
 {
   "name": "Lista de Compras",
   "short_name": "Compras",
+  "description": "Aplicación de lista de compras interactiva",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#4CAF50",
-  "iconos": [ {
+  "iconos": [
+    {
       "src": "/iconos/icono.jpg",
       "sizes": "192x192",
       "type": "image/jpg"
